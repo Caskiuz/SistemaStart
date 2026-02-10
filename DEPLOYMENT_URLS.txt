@@ -1,0 +1,7 @@
+SISTEMA STAR - URLs de Deployment
+============================================================
+
+Backend Público:  https://info-tires-control-project.trycloudflare.com
+Frontend Público: https://elimination-gerald-childhood-incident.trycloudflare.com
+
+Fecha: 2026-01-31 17:58:24
