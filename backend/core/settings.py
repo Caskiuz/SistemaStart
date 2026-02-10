@@ -96,20 +96,29 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 import os
 
-# Detectar el motor de base de datos según el puerto
-db_port = os.getenv('DB_PORT', '5432')
-db_engine = 'django.db.backends.postgresql' if db_port == '5432' else 'django.db.backends.mysql'
-
-DATABASES = {
-    'default': {
-        'ENGINE': db_engine,
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT')
+# Usar SQLite si está configurado en .env
+if os.getenv('USE_SQLITE') == 'True':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    # Detectar el motor de base de datos según el puerto
+    db_port = os.getenv('DB_PORT', '5432')
+    db_engine = 'django.db.backends.postgresql' if db_port == '5432' else 'django.db.backends.mysql'
+
+    DATABASES = {
+        'default': {
+            'ENGINE': db_engine,
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': os.getenv('DB_HOST'),
+            'PORT': os.getenv('DB_PORT')
+        }
+    }
 
 
 # Password validation
