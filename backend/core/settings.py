@@ -94,9 +94,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os
+
+# Detectar el motor de base de datos según el puerto
+db_port = os.getenv('DB_PORT', '5432')
+db_engine = 'django.db.backends.postgresql' if db_port == '5432' else 'django.db.backends.mysql'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': db_engine,
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
