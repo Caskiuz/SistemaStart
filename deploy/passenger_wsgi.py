@@ -1,10 +1,6 @@
 import os
 import sys
 
-# Configurar PyMySQL como MySQLdb (para cPanel)
-import pymysql
-pymysql.install_as_MySQLdb()
-
 # Ruta al proyecto Django
 sys.path.insert(0, os.path.dirname(__file__))
 

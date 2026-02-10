@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://mechanics-jungle-responded-sent.trycloudflare.com/api/',
+    baseURL: 'https://g-start.online/api/',
     headers: { 'Content-Type': 'application/json' },
 })
 

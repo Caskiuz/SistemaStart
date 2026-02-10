@@ -1,0 +1,4 @@
+PassengerEnabled On
+PassengerAppRoot /home/gstart/backend
+PassengerPython /home/gstart/virtualenv/backend/3.9/bin/python
+PassengerStartupFile passenger_wsgi.py

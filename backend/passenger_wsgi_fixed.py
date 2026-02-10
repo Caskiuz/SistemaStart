@@ -1,7 +1,7 @@
 import os
 import sys
 
-# Configurar PyMySQL como MySQLdb (para cPanel)
+# Configurar PyMySQL como MySQLdb
 import pymysql
 pymysql.install_as_MySQLdb()
 
